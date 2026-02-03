@@ -1,0 +1,61 @@
+/************************************************************
+   NEO-DASH · DARK THEME  — « Cyber-punk »
+   (variables uniquement – aucune règle de mise en page)
+************************************************************/
+
+:root{
+  /* ---------- Fonds & texte ---------- */
+  --bg-1:#2c084b;      /* gradient start */
+  --bg-2:#0d1836;      /* gradient middle */
+  --bg-3:#060d21;      /* gradient end   */
+  --sidebar:#12172f;   /* sidebar panel  */
+  --card:#151129ee;    /* cartes / graph */
+  --text:#e6e9f0;      /* texte principal */
+  --sub:#9ca3af;       /* texte secondaire */
+
+  /* ---------- Accent néon & halo ---------- */
+  --accent:#ff007f;                     /* rose néon */
+  --glow:rgba(255,0,127,.6);            /* halo rose */
+
+  /* ---------- Blocs gradient / néon partagé ---------- */
+  --block-gradient:linear-gradient(135deg,var(--accent) 0%, #ab4aff 100%);
+  --block-border:2px solid var(--accent);
+  --block-shadow:0 0 16px var(--accent), inset 0 0 26px rgba(0,0,0,.55);
+
+  /* ---------- Couleurs KPI ---------- */
+  --tile-yellow:#fed941;
+  --tile-cyan:#24e0ff;
+  --tile-pink:#ff007d;
+  --tile-violet:#ab4aff;
+  --tile-orange:#f66023;
+  --tile-electric:#FF1744;
+  --tile-lime:#8AFF00;
+  --tile-blue:#3A86FF;
+  --tile-raspberry:#e30B5c;
+
+  /* ---------- Palette rouge / orange ---------- */
+  --c-red-dark:#6a1221;
+  --c-red:#8a1f21;
+  --c-red-bright:#b83724;
+  --c-orange:#f66023;
+  --c-orange-lit:#ffa12c;
+  --c-offwhite:#f9f5f2;
+
+  /* ---------- Select / composants ---------- */
+  --ctl-bg:rgba(184,55,36,.92);   /* fond contrôles Select */
+  --ctl-border:var(--c-orange);   /* bordure */
+  --ctl-arrow:var(--c-offwhite);  /* icône flèche / clear */
+
+  /* ---------- Header ---------- */
+  --header-h:72px;
+  --header-bg:linear-gradient(145deg,#1f143b 0%, #180d29 100%);
+  --header-border:1px solid #ffffff0d;
+
+  /* ---------- Effets génériques ---------- */
+  --radius:18px;
+  --shadow:0 0 16px #0006;
+  --border:1px solid #ffffff0d;
+}
+:root{
+    --arrow-clr:#ff007f;   /* rose-violet néon */
+}

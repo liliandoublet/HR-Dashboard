@@ -1,0 +1,625 @@
+/* Inter 400 */
+@font-face{
+  font-family:"Inter";
+  src:url("fontawesome/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0I5nvwU.woff2") format("woff2");
+  font-weight:400; font-style:normal; font-display:swap;
+}
+/* Inter 600 */
+@font-face{
+  font-family:"Inter";
+  src:url("fontawesome/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7W0I5nvwUgHU.woff2") format("woff2");
+  font-weight:600; font-style:normal; font-display:swap;
+}
+/* Font Awesome Solid 900 */
+@font-face{
+  font-family:"Font Awesome 6 Free";
+  src:url("fontawesome/fa-solid-900.woff2") format("woff2");
+  font-weight:900; font-style:normal; font-display:block;
+}
+.fa,.fa-solid{ font-family:"Font Awesome 6 Free"; font-weight:900; }
+
+/* Utilisation */
+body{ font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+
+/* ═══════════════ 1. RESET / BASE ══════════════════════════ */
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Inter',sans-serif;
+  background:linear-gradient(135deg,var(--bg-1)0%,var(--bg-2)40%,var(--bg-3)100%);
+  color:var(--text);
+  min-height:100vh;
+}
+.hidden{display:none!important}
+.text-sub{color:var(--sub)}
+
+/* ═══════════════ 2. BOUTON MENU ═══════════════════════════ */
+.sidebar-toggle-btn{
+  position:fixed;top:1rem;left:1rem;z-index:1100;
+  display:flex;align-items:center;gap:.45rem;
+  padding:.55rem 1.2rem;font-size:1rem;cursor:pointer;
+  border:none;border-radius:var(--radius);
+  background:var(--accent);color:#fff;
+  box-shadow:0 0 20px var(--glow);transition:.25s;
+}
+.sidebar-toggle-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 28px var(--accent);
+}
+.sidebar-toggle-btn:active,
+.sidebar-toggle-btn.is-active{
+  background:var(--block-gradient);
+  box-shadow:0 0 16px var(--accent),0 0 32px var(--glow);
+}
+
+/* ═══════════════ 3. SIDEBAR ═══════════════════════════════ */
+.sidebar{
+  position:fixed;top:0;left:0;width:350px;height:100%;
+  background:var(--sidebar);padding:5rem 1.5rem 1rem;
+  border-right:var(--border);box-shadow:var(--shadow);
+  overflow-y:auto;transition:transform .3s ease;z-index:1000;
+}
+.sidebar.open{transform:none}
+.sidebar:not(.open){transform:translateX(-350px)}
+.sidebar::-webkit-scrollbar{width:4px}
+.sidebar::-webkit-scrollbar-thumb{
+  background:rgba(61,62,96,.8);border-radius:10px;
+}
+.sidebar>label{
+  display:block;font-weight:600;color:var(--c-offwhite);
+  margin:.85rem 0 .35rem;
+}
+
+/* 3.1 BLOCS FILTRE (gradient + néon) ----------------------------------- */
+.filter-block{
+  display:flex;flex-direction:column;gap:.8rem;
+  padding:1.2rem 1.5rem;margin:0 0 1.4rem;
+  background:var(--block-gradient)!important;
+  border:var(--block-border)!important;
+  border-radius:6px;box-shadow:var(--block-shadow)!important;
+}
+.filter-block .filter-title{
+  font-weight:600;color:var(--c-offwhite);margin:0;
+}
+.filter-block .Select-control{border-radius:4px!important}
+
+/* ═══════════════ 4. RADIO & CHECKLIST ═════════════════════ */
+.sidebar .radio-group,
+.sidebar .radio-group--flat{
+  display:flex;flex-direction:column;gap:.35rem;
+  padding:1rem 1.5rem;margin:0 0 1.4rem;
+  background:var(--block-gradient)!important;
+  border:var(--block-border)!important;
+  border-radius:6px!important;
+  box-shadow:var(--block-shadow)!important;
+  color:var(--c-offwhite)!important;
+}
+.sidebar .radio-group:hover{
+  box-shadow:0 0 18px var(--c-orange),inset 0 0 30px rgba(0,0,0,.25);
+}
+.sidebar .radio-group input[type=radio],
+.sidebar .radio-group input[type=checkbox]{
+  appearance:none;width:16px;height:16px;margin-right:.5rem;flex-shrink:0;
+  border:2px solid var(--c-orange-lit);border-radius:50%;background:transparent;
+  cursor:pointer;position:relative;
+}
+.sidebar .radio-group input:checked::before{
+  content:"";position:absolute;inset:3px;border-radius:50%;
+  background:var(--c-orange-lit);box-shadow:0 0 6px var(--c-orange-lit);
+}
+.sidebar .radio-group label,
+.sidebar .radio-group--flat label{
+  margin:0;display:flex;align-items:center;line-height:1.35;
+  color:var(--c-offwhite)!important;background:transparent!important;
+  border:none!important;box-shadow:none!important;cursor:pointer;
+}
+
+/* ═══════════════ 5. HEADER FIXE ═══════════════════════════ */
+.header{
+  position:fixed;top:0;left:0;width:100%;z-index:1050;
+  height:var(--header-h);display:flex;align-items:center;justify-content:center;
+  padding:1rem 0;text-align:center;font-size:2rem;font-weight:600;
+  background:var(--header-bg);
+  border-bottom:var(--header-border);box-shadow:var(--shadow);
+}
+
+/* ═══════════════ 6. KPI TILES ═════════════════════════════ */
+.kpi-wrap{display:flex;flex-wrap:wrap;gap:1rem;margin:0 0 1.4rem}
+.kpi-tile{
+  flex:1 1 200px;min-width:180px;padding:1.2rem;border-radius:var(--radius);
+  font-weight:600;color:#111;position:relative;
+  box-shadow:inset 0 0 40px rgb(0 0 0/.15),0 6px 22px rgb(0 0 0/.15);
+  transition:transform .25s,box-shadow .25s;
+}
+.kpi-tile:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 24px rgb(0 0 0/.15),0 0 12px var(--glow);
+}
+.kpi-tile span.value{display:block;font-size:1.9rem;margin-bottom:.25rem}
+.kpi-tile>*:not(.value),.kpi-tile .text-sub, .kpi-tile small{
+  color:#fff!important;opacity:.9;
+}
+.kpi-yellow{background:var(--tile-yellow)}
+.kpi-cyan  {background:var(--tile-cyan)}
+.kpi-pink  {background:var(--tile-pink);color:#fff}
+.kpi-violet{background:var(--tile-violet);color:#fff}
+
+/* ═══════════════ 6. NOUVELLE COULEUR KPI ORANGE ══════════════════════ */
+:root{ --tile-orange:#ff9f1c }
+.kpi-orange{background:var(--tile-orange);color:#111}
+
+/* ═══════════════ 6. NOUVELLE COULEUR KPI ══════════════════════ */
+:root{
+  --kpi-electric: #FF1744;
+  --kpi-lime: #8AFF00;
+  --kpi-blue: #3A86FF;
+  --kpi-raspberry: #E30B5C;
+}
+
+.kpi-electric{background:var(--tile-electric);color:#fff}
+.kpi-lime{background:var(--tile-lime);color:#111}
+.kpi-blue{background:var(--tile-blue);color:#fff}
+.kpi-raspberry{background:var(--tile-raspberry);color:#fff}
+
+/* exemples d’ombres « néon » */
+.kpi-coral { box-shadow: 0 0 12px rgba(0,255,198,.55); }
+.kpi-lime { box-shadow: 0 0 12px rgba(138,255,0,.45); }
+.kpi-blue { box-shadow: 0 0 12px rgba(58,134,255,.50); }
+/* ═══════════════ 7. CONTENU PRINCIPAL ═════════════════════ */
+.dashboard-content{
+  margin-top:var(--header-h);
+  margin-left:350px;padding:1rem 2rem 2rem;transition:.3s;
+}
+.sidebar:not(.open)~.dashboard-content{margin-left:0}
+
+.grid-cards{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:1.2rem;align-items:start;
+}
+.card,.graph-container{
+  background:var(--card);border:var(--border);border-radius:var(--radius);
+  padding:1.35rem;box-shadow:var(--shadow);
+  transition:transform .25s,box-shadow .25s;
+}
+.card:hover,.graph-container:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 24px rgb(0 0 0/.15),0 0 12px var(--glow);
+}
+.graph-container .js-plotly-plot,
+.plot-container,.graph-container svg.main-svg{
+  width:100%!important;height:auto!important;
+}
+
+/* ═══════════════ 8. FULLSCREEN MODE ═══════════════════════ */
+.fullscreen{
+  position:fixed!important;inset:0!important;margin:0!important;
+  width:100%!important;height:100%!important;z-index:2000!important;
+  background:rgba(16,12,34,.92)!important;border-radius:0!important;
+  backdrop-filter:blur(8px);
+}
+
+/* ═══════════════ 9. REACT-SELECT v1 OVERRIDES ═════════════ */
+.Select-control{
+  position:relative!important;width:100%!important;min-width:0;
+  padding-right:3.5rem!important;
+  background:var(--ctl-bg)!important;border:2px solid var(--ctl-border)!important;
+  box-shadow:var(--block-shadow)!important;border-radius:4px!important;
+}
+.Select-placeholder,.Select-value,.Select-value-label,.Select-input input{
+  background:#fff!important;color:#000!important;
+  padding:4px 8px!important;margin:2px!important;
+  border:1px solid #ddd!important;border-radius:4px!important;
+  box-shadow:none!important;width:85%!important;max-width:240px!important;
+}
+.Select-menu-outer{
+  background:#111!important;border:2px solid var(--ctl-border)!important;
+  box-shadow:var(--block-shadow)!important;
+}
+.Select-option,.VirtualizedSelectOption{
+  background:#111!important;color:#fff!important;
+  padding:14px 16px!important;line-height:1.5!important;
+  border:none!important;font-size:14px!important;
+  white-space:normal!important;word-wrap:break-word!important;
+  min-height:48px!important;display:flex!important;align-items:center!important;
+}
+.Select-option:hover,.Select-option.is-focused{
+  background:rgba(255,0,127,.3)!important;color:#fff!important;
+}
+.Select-option.is-selected{
+  background:#fff!important;color:#000!important;
+}
+/* ---------- flèche ▼ de TOUS les dropdowns ---------- */
+:root{
+    --arrow-clr: #ff007f;   /* valeur de secours – sera écrasée par night / day */
+}
+/* triangle + transition */
+.Select-arrow{
+    border-width: .55em .55em 0 .55em !important;
+    border-style: solid   !important;
+    border-color: var(--arrow-clr) transparent transparent !important;
+
+    transition: transform .25s ease, border-top-color .25s ease;
+    transform-origin: center;
+}
+
+/* demi-tour quand le menu est ouvert */
+.Select.is-open       .Select-arrow,
+.Select-control.is-open .Select-arrow{
+    transform: rotate(180deg);         /* ▲ */
+}
+
+/* même couleur pour Pôle / Entité (capuchon rouge) */
+#pole-dd  .Select-arrow,
+#entite-dd .Select-arrow{
+    border-color: var(--arrow-clr) transparent transparent !important;
+}
+
+.Select.is-open .Select-arrow,
+.Select-control.is-open .Select-arrow{transform:rotate(180deg)!important}
+
+/* ═══════════════ 10. TABS ═════════════════════════════════ */
+.tabs{display:flex;justify-content:center;gap:1rem;margin:0 0 2rem}
+.tab,.tab--selected{
+  padding:.55rem 1.4rem;border-radius:var(--radius);font-weight:600;
+  border:1px solid transparent;transition:background .25s,color .25s,box-shadow .25s;
+}
+.tab{background:rgba(26,22,51,.9);color:var(--sub)}
+.tab:hover{
+  background:#fff;color:rgba(26,22,51,1);border-color:#fff;
+  box-shadow:0 0 12px rgba(255,255,255,.35);
+}
+.tab--selected{
+  background:#fff!important;color:#111!important;
+  border:2px solid var(--accent)!important;
+  box-shadow:0 0 16px var(--accent),0 0 32px var(--glow)!important;
+}
+
+/* ═══════════════ 11. GRILLES SPÉCIFIQUES ══════════════════ */
+.global-row{display:flex;flex-direction:column;gap:1rem}
+.global-row>div{flex:1 0 100%}
+.global-row .card{min-height:420px}
+
+/* ═══════════════ 12. RADIO-GROUP « FLAT » ═════════════════ */
+.radio-group--flat label{
+  background:transparent!important;color:#000!important;border:none!important;box-shadow:none!important;
+}
+.radio-group--flat input:checked+label{
+  background:transparent!important;color:#000!important;
+}
+
+/* ═══════════════ 13. ESPACEMENT OPTIONS (Select) ═════════ */
+.Select-option+.Select-option,
+.VirtualizedSelectOption+.VirtualizedSelectOption{margin-top:.5rem!important}
+.Select-menu-outer .Select-option:not(:last-child){margin-bottom:.5rem!important}
+.VirtualizedSelectMenuList .VirtualizedSelectOption:not(:last-child){margin-bottom:.5rem!important}
+.Select-option,.VirtualizedSelectOption{
+  overflow-wrap:normal!important;word-break:normal!important;white-space:normal!important
+}
+
+/* BOUTON THEME (soleil / lune) */
+.theme-btn{
+  position: fixed;
+  top: 1rem;
+  right: 1rem;          /* coin supérieur droit */
+  z-index: 1100;
+
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 1.1rem;     /* taille de l’icône Font-Awesome */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  box-shadow: 0 0 18px var(--glow);
+  transition: transform .25s, box-shadow .25s;
+}
+
+/* icône via pseudo-élément → un seul glyphe */
+.theme-btn::before{
+  content: "\f185";      /* fa-sun (solid) */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+
+.theme-btn:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 0 26px var(--glow);
+}
+
+.theme-btn.dark::before{ content: "\f186"; } /* fa-moon quand thème clair */
+
+/* --- Icône par défaut (mode sombre) ------------------------ */
+.theme-btn::before{
+  content:"\f185";                      /* soleil   (Font-Awesome) */
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;                      /* style « solid »         */
+}
+body.light .theme-btn::before{
+  content:"\f186";                      /* lune en mode clair      */
+}
+
+.filter-block .Select-control{
+  position: relative !important;
+  padding-right: 3.5rem !important;
+  overflow: visible !important;
+}
+
+.filter-block .Select-arrow-zone{
+  position: absolute !important;
+  top: 50% !important;
+  right: 0rem !important;
+  transform: translateY(-50%) !important;
+  width: 2rem !important;
+  height: 2rem !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: transparent !important;
+  pointer-events: none;          /* clic toujours sur le champ */
+}
+
+
+.filter-block .Select-control:hover .Select-arrow{
+  border-top-color: #fff !important;   /* (option) survol */
+}
+.Select-control{                     /* tous les dropdowns */
+  position: relative !important;
+  padding-right: 3.5rem !important; /* = largeur du volet rouge */
+  overflow: visible !important;
+}
+
+/* zone qui englobe la flèche */
+.Select-arrow-zone{
+  position: absolute !important;
+  top: 50% !important;
+  right: 0.15rem !important;        /* ▶︎ collé au bord */
+  transform: translateY(-50%) !important;
+  width: 2.2rem !important;         /* même que la bande rouge */
+  height: 2.2rem !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;             /* laisse le clic sur le champ */
+  background: transparent !important;
+}
+
+/* ------------------------------------------------------------------
+   Ajustement POSITION de la flèche ▸ uniquement pour #pole-dd et #entite-dd
+   ------------------------------------------------------------------ */
+
+/* 1. on élargit un peu la zone réservée dans le contrôle */
+#pole-dd .Select-control,
+#entite-dd .Select-control{
+    padding-right: 3.5rem !important;   /* même largeur que le capuchon rouge */
+}
+
+/* 2. on cale réellement la zone flèche dans cette bande rouge */
+#pole-dd .Select-arrow-zone,
+#entite-dd .Select-arrow-zone{
+    right: 0 !important;                /* collé au bord droit du contrôle   */
+    width: 2.2rem !important;           /* couvre tout le capuchon           */
+    height: 2.2rem !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+/* common.css  ─ une seule fois */
+.chart-card,          /* remplace par le ou les sélecteurs réels */
+.graph-wrapper,
+.card-graph{
+  background: var(--surface-bg);   /* ← on utilise la variable */
+}
+
+/* 1) La solution simple : padding sur la rangée qui contient les cartes */
+.global-row{
+  padding-top: 1.5rem;          /* ≈ 24 px d’air ; ajuste à ton goût */
+}
+
+/* 2) Variante : cibler uniquement la toute première rangée de l’onglet */
+.tabs + .global-row{
+  margin-top: 1.5rem;           /* fonctionne aussi, grâce au sélecteur frère */
+}
+
+.kpi-click { cursor:pointer; }
+
+@font-face{
+  font-family:"Font Awesome 6 Free";
+  src:url("./fontawesome/fa-solid-900.woff2") format("woff2"),
+      url("./fontawesome/fa-solid-900.woff")  format("woff");
+  font-weight:900;
+  font-style:normal;
+  font-display:block;
+}
+
+.fa,.fa-solid{font-family:"Font Awesome 6 Free";font-weight:900;}
+/* -------------- Font Awesome LOCAL ------------------- */
+@font-face{
+  font-family:"Font Awesome 6 Free";
+  src:url("fontawesome/fa-solid-900.woff2") format("woff2"),
+      url("fontawesome/fa-solid-900.woff")  format("woff");
+  font-weight:900;
+  font-style:normal;
+  font-display:block;
+}
+
+/* classes génériques (optionnelles si tu utilises les pseudo-éléments) */
+.fa, .fa-solid{
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+}
+
+/* pictos si tu choisis la méthode <i class="fa-solid fa-sun">  */
+.fa-sun:before  { content:"\f185"; }
+.fa-moon:before { content:"\f186"; }
+
+/* -------------- Bouton Jour / Nuit ------------------- */
+.theme-btn{
+  position:fixed;top:1rem;right:1rem;z-index:1100;
+  width:42px;height:42px;border:none;border-radius:50%;
+  background:var(--accent);color:#fff;font-size:1.1rem;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;box-shadow:0 0 18px var(--glow);
+  transition:transform .25s,box-shadow .25s;
+}
+.theme-btn:hover{transform:translateY(-3px);box-shadow:0 0 26px var(--glow);}
+
+/* 1 seule règle pseudo-élément */
+.theme-btn::before{
+  content:"\f186";                    /* lune par défaut (mode sombre) */
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+}
+.theme-btn.dark::before{              /* soleil quand on ajoute .dark */
+  content:"\f185";
+}
+/* ═══════════════ 14. RIGHT SIDEBAR – KPI PICKER ══════════════════════ */
+
+/* ---- volet coulissant ---- */
+.sidebar-right{
+  position:fixed;
+  top:0;right:0;
+  width:350px;height:100%;
+  padding:5rem 1.5rem 1rem;
+  background:var(--sidebar);
+  border-left:var(--border);
+  box-shadow:var(--shadow);
+  overflow-y:auto;
+  transition:transform .3s ease;
+  z-index:1000;
+
+  transform:translateX(350px);       /* caché par défaut */
+}
+.sidebar-right.open{transform:none}
+
+/* scrollbar identique au volet gauche */
+.sidebar-right::-webkit-scrollbar      {width:4px}
+.sidebar-right::-webkit-scrollbar-thumb{background:rgba(61,62,96,.8);border-radius:10px}
+
+/* blocs internes (sélecteurs de KPI) → même skin que .filter-block */
+.kpi-picker-block{
+  display:flex;flex-direction:column;gap:.8rem;
+  padding:1.2rem 1.5rem;margin:0 0 1.4rem;
+  background:var(--block-gradient)!important;
+  border:var(--block-border)!important;
+  border-radius:6px;box-shadow:var(--block-shadow)!important;
+}
+
+/* ───── NOUVEAU : bouton “＞ / ＜” placé au MILIEU du bord droit ───── */
+:root { --right-sb-w: 350px; }   /* largeur du volet droit */
+
+/* bouton au milieu du bord droit */
+/* Bouton (inchangé) */
+.sidebar-right-toggle-btn{
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 1100;
+  width: 42px; height: 42px;
+  display: flex; align-items: center; justify-content: center;
+  border: none; border-radius: 8px 0 0 8px;
+  cursor: pointer;
+  background: var(--accent); color: #fff;
+  box-shadow: 0 0 20px var(--glow);
+  transition: right .3s ease, transform .25s ease, box-shadow .25s ease;
+}
+.sidebar-right-toggle-btn.is-active{ right: var(--right-sb-w); }
+
+/* Icône simple : > fermé, < ouvert (PAS de rotation) */
+.sidebar-right-toggle-btn::before{
+  content: ">";               /* fermé */
+  font-family: inherit;       /* pas de Font Awesome */
+  font-weight: 700;
+  display: inline-block;
+}
+.sidebar-right-toggle-btn.is-active::before{
+  content: "<";               /* ouvert */
+}
+
+/* (option) petit slide au hover */
+.sidebar-right-toggle-btn:hover{
+  transform: translateY(-50%) translateX(-3px);
+}
+
+
+/* décalage du contenu central quand la sidebar droite est ouverte */
+.sidebar-right.open ~ .dashboard-content{ margin-right: var(--right-sb-w); }
+
+
+/* ═══════════════ 15. BARRE “PÉRIODE DELTA” (onglet 4 seulement) ═══════ */
+.period-bar{
+  margin-bottom:1.2rem;
+  padding:1rem 1.2rem;
+  background:var(--block-gradient);
+  border:var(--block-border);
+  border-radius:6px;
+  box-shadow:var(--block-shadow);
+}
+.period-bar input[type=range]{
+  width:100%;
+  accent-color:var(--accent);
+}
+
+/* ═══════════════ 15. BARRE “PÉRIODE DELTA” (onglet 4 seulement) ═══════ */
+.period-bar{
+  margin-bottom:1.2rem;
+  padding:1rem 1.2rem;
+  background:var(--block-gradient);
+  border:var(--block-border);
+  border-radius:6px;
+  box-shadow:var(--block-shadow);
+}
+.period-bar input[type=range]{
+  width:100%;
+  accent-color:var(--accent);
+}
+
+:root { --right-sb-w: 350px; }   /* largeur du volet droit */
+
+/* petit glissement vers la droite au survol */
+.sidebar-right-toggle-btn:hover{
+  transform:translateY(-50%) translateX(3px);
+  box-shadow:0 0 28px var(--accent);
+}
+
+/* picto Font-Awesome 〉/〈  (inchangé) */
+.sidebar-right-toggle-btn::before{         /* volet fermé → chevron droit */
+  content:"\f054";                         /* fa-chevron-right            */
+  font-family:"Font Awesome 6 Free";font-weight:900;
+}
+.sidebar-right-toggle-btn.is-active::before{content:"\f053"} /* volet ouvert */
+
+.graphs-row { display: flex; flex-direction: column; gap: 12px; }
+.graph-container { position: relative; min-height: 440px; }
+.card { position: relative; }  /* surtout pas absolute ici */
+
+/* ═══════════════ 16. Bouton rotatif pour les KPI) ═══════ */
+/* Bouton rotatif KPI (garde tes règles existantes de style) */
+.kpi-rotate-btn{
+  position:absolute; top:.5rem; right:.5rem;
+  width:30px; height:30px; border:none; border-radius:50%;
+  background:rgba(255,255,255,.22); color:#fff; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  backdrop-filter: blur(2px);
+  box-shadow:0 0 10px rgb(0 0 0 / .25);
+  transition:transform .2s, box-shadow .2s, opacity .2s;
+}
+
+/* Icône via pseudo-élément (Font Awesome) */
+.kpi-rotate-btn::before{
+  content:"\f2f1";                    /* ↻  (rotate/sync FA) */
+  font-family:"Font Awesome 6 Free";
+  font-weight:900;
+  display:inline-block;
+}
+
+/* Anim */
+@keyframes spin { to { transform: rotate(360deg); } }
+.kpi-rotate-btn.is-spinning::before{
+  animation: spin .6s linear 1;       /* une rotation courte */
+}

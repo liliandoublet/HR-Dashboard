@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+#Excel
+data/COLLABORATEURS\ CM/*.xlsx
+!data/COLLABORATEURS\ CM/template.xlsx
+

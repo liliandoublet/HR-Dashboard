@@ -1,0 +1,29 @@
+dashboard/
+├─ app.py                     # Point d’entrée Dash (server)
+├─ config/
+│  ├─ settings.py             # Constantes simples (seuils, chemins, etc.)
+│  └─ column_rules.py         # Règles d’inclusion/exclusion, libellés, mapping
+├─ services/
+│  ├─ data_manager.py         # Classe DataManager + load/prepare/cache
+│  ├─ schema_service.py       # Calcule le "schéma" dynamique d’un fichier (colonnes)
+│  └─ template_service.py     # Thèmes Plotly (neo_light / neo_dark) + apply_theme_template
+├─ ui/
+│  ├─ layout.py               # app.layout (structure) — sans callbacks
+│  ├─ components/
+│  │  ├─ filters.py            # Blocs de filtres (file-dd, pole-dd, entite-dd, etc.)
+│  │  ├─ kpis.py              # Tuiles KPI + helpers (make_kpi, make_kpi_toggle)
+│  │  └─ graphs.py            # Petits builders génériques (add_labels, build_multi_pies, make_title…)
+│  └─ assets/                 # tes CSS existants
+│     ├─ common.css        
+│     ├─ day.css    
+│     └─ night.css
+├─ callbacks/
+│  ├─ theme.py                # Switch jour/nuit
+│  ├─ sidebar.py              # Ouverture / fermeture sidebars
+│  ├─ options.py              # *** MAJEUR : options dynamiques des dropdowns via le "schema" ***
+│  ├─ kpis.py                 # Mise à jour des KPI
+│  ├─ global_tab.py           # Graphes “Vision Globale”
+│  ├─ simple_tab.py           # Visualisation simple (bar/pie/treemap/scatter/bubble)
+│  ├─ viz_tab.py              # Analyse complexe
+│  └─ time_tab.py             # Évolution temporelle + KPI delta
+└─ cache_utils.py             # Fichier pour vider le cache sous excel.

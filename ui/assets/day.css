@@ -1,0 +1,93 @@
+/*───────────────────────────────────────────────────────────
+  LIGHT THEME – variables pour common.css
+  (Indigo & Sky Blue – v1.0)
+───────────────────────────────────────────────────────────*/
+
+:root{
+  /* --- Couleurs de base ---------------------------------------------- */
+  --primary:#4361ee;       /* indigo                              */
+  --secondary:#3f37c9;     /* indigo foncé                       */
+  --accent:#4895ef;        /* bleu clair                         */
+  --accent-alt:#4cc9f0;    /* turquoise                          */
+
+  --bg-1:#ffffff;          /* gradient start                     */
+  --bg-2:#f5f7fb;          /* gradient middle                    */
+  --bg-3:#edf2ff;          /* gradient end                       */
+
+  --sidebar-bg:#ffffff;    /* fond barre latérale                */
+  --card-bg:#ffffffee;     /* fond cartes (légèrement opaque)    */
+
+  --txt:#212529;           /* texte principal                    */
+  --txt-sub:#6c757d;       /* texte secondaire / labels          */
+
+  --glow:rgba(72,149,239,.35); /* halo sur boutons néon          */
+
+  /* --- KPI tiles ------------------------------------------------------ */
+  --tile-yellow:#ffe36e;
+  --tile-cyan:  #4cd5f6;
+  --tile-pink:  #ff268e;
+  --tile-violet:#aa6af6;
+  --tile-orange:#f66023;
+  --tile-electric:#FF1744;
+  --tile-lime:#8AFF00;
+  --tile-blue:#3A86FF;
+  --tile-raspberry:#e30B5c;
+
+  /* --- Blocs latéraux (filtres, radio-group…) ------------------------- */
+  --block-bg:linear-gradient(135deg,var(--accent) 0%,var(--accent-alt) 100%);
+  --block-border:2px solid var(--accent);
+  --block-shadow:0 0 14px rgba(72,149,239,.35), inset 0 0 20px rgba(0,0,0,.05);
+
+  /* --- Header --------------------------------------------------------- */
+  --header-bg:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);
+  --header-border:rgba(0,0,0,.05);
+
+  /* --- Contours neutres ---------------------------------------------- */
+  --card-border:1px solid rgba(0,0,0,.08);
+  --sidebar-border:1px solid rgba(0,0,0,.08);
+
+  /* --- Contrôles (React-Select) -------------------------------------- */
+  --ctl-bg:#ffffff;        /* fond du contrôle                    */
+  --ctl-border:#4895ef;    /* bordure / focus                    */
+  --ctl-arrow:#4895ef;     /* flèche et clear-icon               */
+}
+:root{
+    --arrow-clr:#4361ee;   /* bleu-violet clair */
+}
+
+/* day.css  ─ après tes autres variables */
+:root{
+  --card: #ffffffee;      /* blanc très légèrement opaque */
+}
+
+/* day.css – après tous les imports */
+:root{
+  /* Fond clair dégradé pour la sidebar */
+  --sidebar: linear-gradient(180deg, #f5f7fb 0%, #eef4ff 100%);
+
+  /* (optionnel) bordure et texte adaptés */
+  --sidebar-border: 1px solid #c9d8ff;
+  --c-offwhite: #212529;   /* texte sombre dans la barre */
+}
+
+/* day.css – à la fin du fichier */
+:root{
+  --c-offwhite: #111;     /* ou #000 si tu veux un noir pur */
+}
+:root{
+  /* couleur principale du texte */
+  --text: #212529;         /* noir doux / gris anthracite */
+
+  /* texte secondaire (labels discrets) */
+  --sub:  #6c757d;         /* gris moyen */
+}
+/* 1) le titre seulement */
+#main-title{
+  color:#ffffff;                    /* blanc pur */
+  text-shadow:0 0 4px rgba(0,0,0,.25);   /* (optionnel) léger halo pour la lisibilité */
+}
+
+/* 2) ou bien toute la barre si tu veux que tout soit blanc */
+.header{
+  color:#ffffff;
+}
