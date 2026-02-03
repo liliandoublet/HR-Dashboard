@@ -5,6 +5,6 @@ __pycache__/
 venv/
 
 #Excel
-data/COLLABORATEURS\ CM/*.xlsx
-!data/COLLABORATEURS\ CM/template.xlsx
+data/COLLABORATEURS CM_*.xlsx
+!data/COLLABORATEURS CM_template.xlsx
 
